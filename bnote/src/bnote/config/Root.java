@@ -30,20 +30,21 @@ public class Root {
 	@Value("${jdbc.password}")
 	private String jdbcPassword;
 
-	private static final String APP_CONFIG_FILE_PATH = "applicatrion.xml";
+//	private static final String APP_CONFIG_FILE_PATH = "applicatrion.xml";
 	
     /**
      * 프로퍼티 홀더는 다른 빈들이 사용하는 프로퍼티들을 로딩하기 때문에, static 메소드로 실행된다.
      * 다른 일반 빈들이 만들어지기전에 먼저 만들어져야 한다.
      */
-	
+/*	
 	@Bean
 	public static PropertyPlaceholderConfigurer propertyPlaceholderConfigurer() {
 		PropertyPlaceholderConfigurer ppc = new PropertyPlaceholderConfigurer();
 		ppc.setLocations(new Resource[] {new ClassPathResource(APP_CONFIG_FILE_PATH)});
 		return ppc;
 	}
-	
+*/
+
 	public DataSource dataSource() {
 		BasicDataSource ds = new BasicDataSource();
 		ds.setDriverClassName(this.jdbcDriverClassName);
@@ -52,6 +53,5 @@ public class Root {
 		ds.setPassword(this.jdbcPassword);
 		return ds;
 	}
-	
 
 }

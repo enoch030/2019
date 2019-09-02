@@ -58,6 +58,8 @@ public class Initializer implements WebApplicationInitializer {
 		filter.setInitParameter("forceEncoding", "true");
 		filter.addMappingForUrlPatterns(null, false, "/*");
 	}
+	
+	
 }
 
 
