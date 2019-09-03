@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN" "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+<tiles-definitions>
+	<definition name="t_defalut" template="/WEB-INF/view/mainTemplate.jsp">
+		<put-attribute name="title" value="Welcom to bnote"></put-attribute>
+	</definition>
+	
+	<definition name="t_el" extends="t_defalut">
+		<put-attribute name="body" expression="/WEB-INF/view/${body}.jsp"></put-attribute>
+	</definition>
+
+</tiles-definitions>

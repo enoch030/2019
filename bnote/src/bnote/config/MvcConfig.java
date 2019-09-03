@@ -14,10 +14,12 @@ import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
+import org.springframework.web.servlet.config.annotation.ViewResolverRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.handler.ConversionServiceExposingInterceptor;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.tiles3.TilesViewResolver;
+import org.springframework.web.servlet.view.tiles3.TilesConfigurer;
 
 @Configuration
 @EnableWebMvc
@@ -50,10 +52,17 @@ public class MvcConfig extends WebMvcConfigurerAdapter { // 인터셉터 추가 
 	}
 	
 	@Bean
-	public TilesViewResolver tilesViewResolver() {
-//		tilesViewResolver()
-		return null;
-		
+	public TilesConfigurer tilesConfigurer() {
+		TilesConfigurer tilesConfig = new TilesConfigurer();
+		tilesConfig.setDefinitions(new String[] {"/WEB-INF/tiles/default-tile.xml"});
+		return tilesConfig;
+	}
+
+	@Override
+	public void configureViewResolvers(ViewResolverRegistry registry) {
+		TilesViewResolver tvr = new TilesViewResolver();
+		registry.viewResolver(tvr);
+		tvr.setOrder(1);
 	}
 	
 }
