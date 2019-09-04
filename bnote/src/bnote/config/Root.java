@@ -9,6 +9,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
+import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
 /**
  * 루트 설정용 클래스.
@@ -45,13 +46,17 @@ public class Root {
 	}
 */
 
-	public DataSource dataSource() {
+/*	public DataSource dataSource() {
 		BasicDataSource ds = new BasicDataSource();
 		ds.setDriverClassName(this.jdbcDriverClassName);
 		ds.setUrl(this.jdbcUrl);
 		ds.setUsername(this.jdbcUsername);
 		ds.setPassword(this.jdbcPassword);
 		return ds;
-	}
+	}*/
 
+	public DataSource driverManagerDataSource() {
+		
+		return null;
+	}
 }
